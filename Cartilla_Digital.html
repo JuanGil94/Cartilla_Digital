@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartilla Digital - Cómo construir un software seguro</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .cartilla-container {
+            max-width: 800px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            height: 8px;
+            width: 0;
+            background-color: green;
+            border-radius: 10px;
+            transition: width 0.3s ease-in-out;
+        }
+        h1, h2, h3 {
+            color: green;
+        }
+        ul {
+            margin-top: 10px;
+            padding-left: 25px;
+        }
+        .portada img {
+            width: 100%;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cartilla-container">
+        <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+        <div class="page active">
+            <h1>Cómo construir un software seguro</h1>
+            <div class="portada">
+                <img src="software_seguro.jpg" alt="Portada Software Seguro">
+            </div>
+        </div>
+        <div class="page">
+            <h2>Página legal</h2>
+            <p><strong>Autor:</strong> Juan Sebastian Gil Rincon</p>
+            <p><strong>Fecha:</strong> Agosto 2025</p>
+        </div>
+        <div class="page">
+            <h2>Tabla de contenido</h2>
+            <ul>
+                <li>Introducción</li>
+                <li>Seguridad desde la construcción</li>
+                <li>Importancia de automatizar la construcción y asegurar herramientas</li>
+                <li>Impacto de comprobaciones de seguridad obligatorias</li>
+                <li>Recomendaciones</li>
+                <li>Conclusiones</li>
+            </ul>
+        </div>
+        <div class="page">
+            <h2>Introducción</h2>
+            <p>Esta cartilla tiene como propósito explicar la importancia de integrar la seguridad en la construcción del software. Está dirigida a desarrolladores, ingenieros y líderes de proyecto que buscan crear sistemas más confiables. Se abordarán procesos, herramientas y técnicas que permiten garantizar compilaciones seguras, asegurando la calidad de los artefactos generados.</p>
+        </div>
+        <div class="page">
+            <h2>Seguridad desde la construcción</h2>
+            <p>Automatizar el proceso de compilación y asegurar las herramientas utilizadas es clave para reducir riesgos de seguridad. Con esto se implementa una seguridad desde la contrucción, teniendo en cuenta las buenas practicas como nombres de variables intuitivas, uso de la programación orientada a objetos, encriptación de informacion delicada. </p>
+        </div>
+        <div class="page">
+            <h2>Importancia de automatizar la construcción y asegurar herramientas</h2>
+            <p><strong>* Eficiencia:</strong>Acelera el desarrollo al evitar tareas manuales repetitivas.</p>
+            <p><strong>Ejemplo:</strong> Si tienes un proyecto grande y cada desarrollador construye la aplicación manualmente, los errores son inevitables. Con automatización, un solo comando o pipeline en Jenkins, GitHub Actions o GitLab CI/CD puede encargarse de todo.
+            <p><strong>* Consistencia:</strong>Todas las compilaciones son iguales y reproducibles.</p>
+            <p><strong>* Seguridad: </strong>Verifica dependencias y evita librerías maliciosas o vulnerables.</p>
+            <p><strong>* Escalabilidad: </strong>Permite que equipos grandes trabajen en paralelo sin conflictos.</p>
+        </div>
+        <div class="page">
+            <h2>Impacto de comprobaciones de seguridad obligatorias</h2>
+            <p><strong>* Prevención temprana:</strong>Detecta vulnerabilidades antes de desplegar.</p>
+            <p><strong>Ejemplo:</strong> Si un escáner encuentra que una librería tiene una vulnerabilidad crítica (CVSS > 9), la build se detiene hasta que se actualice la dependencia.
+            <p><strong>* Calidad garantizada:</strong>Solo se generan artefactos seguros y confiables.</p>
+            <p><strong>* Cumplimiento normativo: </strong>Facilita auditorías y cumplimiento de estándares.</p>
+            <p><strong>* Cultura DevSecOps: </strong> La seguridad se integra desde el inicio del desarrollo.</p>
+        </div>
+        <div class="page">
+            <h2>Recomendaciones</h2>
+            <p><strong>Definición formal del proceso de compilación:</strong> Documentar cada paso asegura transparencia y control.</p>
+            <p><strong>Automatización:</strong> Reduce errores humanos y permite detectar fallos de forma temprana.</p>
+            <p><strong>Aseguramiento de herramientas:</strong> Es importante verificar la autenticidad y seguridad de los entornos de compilación.</p>
+            <p><strong>Comprobaciones obligatorias:</strong> Validar que los artefactos cumplan estándares de seguridad evita vulnerabilidades.</p>
+            <p><strong>Evaluación de dependencias:</strong> Solo usar librerías confiables y actualizadas disminuye los riesgos.</p>
+        </div>
+        <div class="page">
+            <h2>Conclusiones</h2>
+            <p>La automatización del proceso de compilación y la implementación de controles de seguridad obligatorios son elementos esenciales para construir software robusto. Integrar estas prácticas reduce riesgos, aumenta la confianza del usuario y garantiza la integridad de los productos desarrollados.</p>
+        </div>
+        <div class="page">
+            <h2>Referencias bibliográficas:</h2>
+        <p>
+            Moes, T. (2023, julio). 
+            <em>¿Qué es la seguridad del software? Todo sobre ello</em>. 
+            <strong>SoftwareLab</strong>. 
+            Recuperado de 
+            <a href="https://softwarelab.org/es/blog/que-es-la-seguridad-del-software/" target="_blank">
+                https://softwarelab.org/es/blog/que-es-la-seguridad-del-software/
+            </a>
+        </p>
+        <p>
+            Autor desconocido. (s.f.). <em>Ciberseguridad en el desarrollo de software: Principios y prácticas</em>. <strong>Ciber-seguridad.blog</strong>. Recuperado de 
+            <a href="https://ciber-seguridad.blog/ciberseguridad-en-el-desarrollo-de-software" target="_blank" rel="noopener">
+                https://ciber-seguridad.blog/ciberseguridad-en-el-desarrollo-de-software
+            </a>
+        </p>
+        </div>
+        <div class="nav-buttons">
+            <button id="prev">Anterior</button>
+            <button id="next">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const progressBar = document.getElementById('progress-bar');
+        let currentPage = 0;
+
+        function updatePage() {
+            pages.forEach((page, index) => {
+                page.classList.toggle('active', index === currentPage);
+            });
+            progressBar.style.width = `${((currentPage + 1) / pages.length) * 100}%`;
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === pages.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        updatePage();
+    </script>
+</body>
+</html>
